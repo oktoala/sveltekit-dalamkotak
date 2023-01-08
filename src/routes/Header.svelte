@@ -1,129 +1,59 @@
 <script>
+	import { theme } from './state';
 	import { page } from '$app/stores';
 	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
+	import Logo from '../components/Logo.svelte';
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
+<svelte:head>
+	<script src="https://kit.fontawesome.com/2f975d5468.js" crossorigin="anonymous"></script>
+</svelte:head>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
+<header
+	class="bg-white/95 dark:bg-gray-900/95 top-0 z-40 fixed w-full backdrop-filter backdrop-blur-md border-gray-200 px-2 sm:px-4 py-1 shadow "
+>
+	<nav class="container flex flex-wrap items-center justify-between ">
+		<button
+			on:click={() => {
+				theme.update((n) => (n = n === 'dark' ? 'light' : 'dark'));
+			}}
+		>
+			<Logo className="cursor-help" />
+		</button>
+		<button
+			data-collapse-toggle="navbar-default"
+			type="button"
+			class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+			aria-controls="navbar-default"
+			aria-expanded="false"
+		>
+			<span class="sr-only">Open main menu</span>
+			<i class="fa-solid fa-bars" />
+		</button>
+		<div class="hidden w-full md:block md:w-auto" id="navbar-default">
+			<div
+				class="flex flex-col p-4 mt-4 border  rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0  "
+			>
+				<a
+					href="/"
+					class="block color-reverse py-2 pl-3 pr-4 font-bold  {$page.url.pathname === '/'
+						? 'active'
+						: 'bg-gray-400'} md:p-0 "
+					aria-current="page">Home</a
+				>
+				<a
+					href="/about"
+					class="block color-reverse py-2 pl-3 pr-4 font-bold {$page.url.pathname === '/about'
+						? 'active'
+						: 'bg-gray-400'} md:p-0 ">About</a
+				>
+			</div>
+		</div>
+		<div class="hidden md:flex justify-between w-28 text-gray-700">
+			<i class="fa-brands fa-github-alt hover:text-black w-6 h-6" />
+			<i class="fa-brands fa-gitlab w-6 h-6 hover:text-orange-ig" />
+			<i class="fa-brands fa-instagram w-6 h-6 hover:text-red-ig" />
+		</div>
 	</nav>
-
-	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
 </header>
-
-<style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--color-theme-1);
-	}
-</style>

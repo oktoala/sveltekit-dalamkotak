@@ -1,0 +1,26 @@
+@import '@fontsource/fira-mono';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--color-primary: #5ff9ff;
+		--color-secondary: #34e3af;
+		--color-third: #29b58b;
+		--color-fourth: #feb16d;
+		--color-fifth: #e33981;
+		--color-sixth: #b63a69;
+	}
+}
+
+@layer components {
+	.active {
+		@apply from-fourth to-fifth;
+	}
+
+	.color-reverse {
+		@apply bg-gradient-to-r bg-clip-text text-transparent hover:from-third hover:via-secondary hover:to-primary;
+	}
+}
