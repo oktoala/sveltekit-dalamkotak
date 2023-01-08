@@ -1,9 +1,19 @@
-<script>
+<script lang="ts">
 	import { theme } from './state';
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import type { SubmitFunction } from '$app/forms';
+	import { enhance } from '$app/forms';
 	import Logo from '../components/Logo.svelte';
+
+	const submitFormUpdateTheme: SubmitFunction = ({ action }) => {
+		const theme = action.searchParams.get('theme');
+
+		if (theme === 'dark') {
+			document.documentElement.classList.add('dark');
+		} else if (theme === 'light') {
+			document.documentElement.classList.remove('dark');
+		}
+	};
 </script>
 
 <svelte:head>
@@ -14,13 +24,12 @@
 	class="bg-white/95 dark:bg-gray-900/95 top-0 z-40 fixed w-full backdrop-filter backdrop-blur-md border-gray-200 px-2 sm:px-4 py-1 shadow "
 >
 	<nav class="container flex flex-wrap items-center justify-between ">
-		<button
-			on:click={() => {
-				theme.update((n) => (n = n === 'dark' ? 'light' : 'dark'));
-			}}
-		>
-			<Logo className="cursor-help" />
-		</button>
+		<!-- svelte-ignore missing-declaration -->
+		<form method="POST" use:enhance={submitFormUpdateTheme}>
+			<button formaction="/?/setTheme&theme={$theme === 'dark' ? 'light' : 'dark'}">
+				<Logo className="cursor-help" />
+			</button>
+		</form>
 		<button
 			data-collapse-toggle="navbar-default"
 			type="button"
@@ -50,8 +59,8 @@
 				>
 			</div>
 		</div>
-		<div class="hidden md:flex justify-between w-28 text-gray-700">
-			<i class="fa-brands fa-github-alt hover:text-black w-6 h-6" />
+		<div class="hidden md:flex justify-between w-28 text-gray-500 dark:text-gray-200">
+			<i class="fa-brands fa-github-alt hover:text-black dark:hover:text-white w-6 h-6" />
 			<i class="fa-brands fa-gitlab w-6 h-6 hover:text-orange-ig" />
 			<i class="fa-brands fa-instagram w-6 h-6 hover:text-red-ig" />
 		</div>
