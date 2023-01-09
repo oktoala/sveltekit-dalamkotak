@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from './state';
+	import { openDrawer, theme } from './state';
 	import { page } from '$app/stores';
 	import type { SubmitFunction } from '$app/forms';
 	import { enhance } from '$app/forms';
@@ -21,18 +21,22 @@
 </svelte:head>
 
 <header
-	class="bg-white/95 dark:bg-gray-900/95 top-0 z-40 fixed w-full backdrop-filter backdrop-blur-md border-gray-200 px-2 sm:px-4 py-1 shadow "
+	class="bg-white/90 dark:bg-gray-900/90 top-0 z-40 fixed w-full backdrop-filter backdrop-blur-md border-gray-200 px-2 sm:px-4 py-1 shadow "
 >
 	<nav class="container flex flex-wrap items-center justify-between ">
 		<!-- svelte-ignore missing-declaration -->
 		<form method="POST" use:enhance={submitFormUpdateTheme}>
-			<button formaction="/?/setTheme&theme={$theme === 'dark' ? 'light' : 'dark'}">
+			<button
+				formaction="/?/setTheme&theme={$theme === 'dark' ? 'light' : 'dark'}&redirectTo={$page.url
+					.pathname}"
+			>
 				<Logo className="cursor-help" />
 			</button>
 		</form>
 		<button
 			data-collapse-toggle="navbar-default"
 			type="button"
+			on:click={() => openDrawer.update(() => true)}
 			class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
 			aria-controls="navbar-default"
 			aria-expanded="false"
@@ -60,9 +64,15 @@
 			</div>
 		</div>
 		<div class="hidden md:flex justify-between w-28 text-gray-500 dark:text-gray-200">
-			<i class="fa-brands fa-github-alt hover:text-black dark:hover:text-white w-6 h-6" />
-			<i class="fa-brands fa-gitlab w-6 h-6 hover:text-orange-ig" />
-			<i class="fa-brands fa-instagram w-6 h-6 hover:text-red-ig" />
+			<a target="_blank" rel="noreferrer" href="https://github.com/oktoala">
+				<i class="fa-brands fa-github-alt hover:text-black dark:hover:text-white w-6 h-6" />
+			</a>
+			<a target="_blank" rel="noreferrer" href="https://gitlab.com/oktavian_yoga">
+				<i class="fa-brands fa-gitlab w-6 h-6 hover:text-orange-ig" />
+			</a>
+			<a target="_blank" rel="noreferrer" href="https://www.instagram.com/yogatra29/">
+				<i class="fa-brands fa-instagram w-6 h-6 hover:text-red-ig" />
+			</a>
 		</div>
 	</nav>
 </header>

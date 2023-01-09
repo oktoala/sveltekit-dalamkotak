@@ -10,6 +10,11 @@ module.exports = {
 				lg: '1024px',
 				md: '768px',
 				sm: '640px'
+			},
+			padding: {
+				DEFAULT: '1rem',
+				md: '3rem',
+				sm: '3rem'
 			}
 		},
 		extend: {
