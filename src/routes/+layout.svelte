@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { openDrawer, theme } from './state';
 	import Header from './Header.svelte';
 	import NProgress from 'nprogress';
 	import { navigating } from '$app/stores';
@@ -23,20 +22,10 @@
 			NProgress.done();
 		}
 	}
-	export let data: LayoutData;
-	$: theme.update((n) => (n = data.colorTheme as string));
 </script>
 
-<div class="app transition-all duration-300">
+<div class="app transition-all duration-300 font-primary">
 	<Header />
-	<Drawer
-		size="50%"
-		placement="right"
-		open={$openDrawer}
-		on:clickAway={() => openDrawer.update(() => false)}
-	>
-		<div>Makan</div>
-	</Drawer>
 	<main class="pt-16 h-screen bg-gray-50 text-gray-900 dark:text-white dark:bg-gray-800">
 		<slot />
 	</main>

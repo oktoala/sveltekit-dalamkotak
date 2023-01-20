@@ -18,6 +18,10 @@ module.exports = {
 			}
 		},
 		extend: {
+			fontFamily: {
+				primary: ['"Poppins"']
+			},
+			translate: ['dark'],
 			gradientColorStops: (theme) => ({
 				primary: 'var(--color-primary)',
 				secondary: 'var(--color-secondary)',
@@ -35,5 +39,5 @@ module.exports = {
 			}
 		}
 	},
-	plugins: []
+	plugins: [require('@tailwindcss/typography')]
 };

@@ -15,13 +15,16 @@
 	}
 }
 
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
 @layer components {
 	.active {
-		@apply from-fourth to-fifth
+		@apply from-fourth to-fifth;
 	}
 
 	.color-reverse {
-		@apply bg-gradient-to-r bg-clip-text text-transparent hover:from-third hover:via-secondary hover:to-primary
+		@apply bg-gradient-to-r bg-clip-text text-transparent hover:from-third hover:via-secondary hover:to-primary;
 	}
-
 }

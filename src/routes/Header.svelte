@@ -4,20 +4,46 @@
 	import type { SubmitFunction } from '$app/forms';
 	import { enhance } from '$app/forms';
 	import Logo from '../components/Logo.svelte';
+	import { browser } from '$app/environment';
+	let darkMode = true;
 
-	const submitFormUpdateTheme: SubmitFunction = ({ action }) => {
-		const theme = action.searchParams.get('theme');
-
-		if (theme === 'dark') {
-			document.documentElement.classList.add('dark');
-		} else if (theme === 'light') {
-			document.documentElement.classList.remove('dark');
+	function handleSwitchDarkMode() {
+		darkMode = !darkMode;
+		localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+		darkMode
+			? document.documentElement.classList.add('dark')
+			: document.documentElement.classList.remove('dark');
+	}
+	console.log($page);
+	if (browser) {
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			darkMode = true;
+		} else {
+			darkMode = false;
 		}
-	};
+	}
 </script>
 
 <svelte:head>
 	<script src="https://kit.fontawesome.com/2f975d5468.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+	<script>
+		if (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark');
+			darkMode = true;
+		} else {
+			document.documentElement.classList.remove('dark');
+			darkMode = false;
+		}
+	</script>
 </svelte:head>
 
 <header
@@ -25,14 +51,9 @@
 >
 	<nav class="container flex flex-wrap items-center justify-between ">
 		<!-- svelte-ignore missing-declaration -->
-		<form method="POST" use:enhance={submitFormUpdateTheme}>
-			<button
-				formaction="/?/setTheme&theme={$theme === 'dark' ? 'light' : 'dark'}&redirectTo={$page.url
-					.pathname}"
-			>
-				<Logo className="cursor-help" />
-			</button>
-		</form>
+		<button on:click={handleSwitchDarkMode}>
+			<Logo className="cursor-help" />
+		</button>
 		<button
 			data-collapse-toggle="navbar-default"
 			type="button"
@@ -60,6 +81,14 @@
 					class="block color-reverse py-2 pl-3 pr-4 font-bold {$page.url.pathname === '/about'
 						? 'active'
 						: 'bg-gray-400'} md:p-0 ">About</a
+				>
+				<a
+					href="/project"
+					class="block color-reverse py-2 pl-3 pr-4 font-bold {$page.url.pathname.includes(
+						'/project'
+					)
+						? 'active'
+						: 'bg-gray-400'} md:p-0 ">Project</a
 				>
 			</div>
 		</div>
