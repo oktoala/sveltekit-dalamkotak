@@ -26,12 +26,12 @@
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <div class="app transition-all duration-300 font-primary">
 	<Header />
-	<main class="pt-16 h-screen bg-gray-50 text-gray-900 dark:text-white dark:bg-gray-800">
+	<main class="pt-16 pb-10 bg-gray-50 text-gray-900 dark:text-white dark:bg-gray-800">
 		<slot />
 	</main>
 	<footer
