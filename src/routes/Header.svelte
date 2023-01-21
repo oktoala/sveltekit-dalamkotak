@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { openDrawer, theme } from './state';
+	import { theme } from './state';
 	import { page } from '$app/stores';
 	import type { SubmitFunction } from '$app/forms';
 	import { enhance } from '$app/forms';
@@ -14,7 +14,6 @@
 			? document.documentElement.classList.add('dark')
 			: document.documentElement.classList.remove('dark');
 	}
-	console.log($page);
 	if (browser) {
 		if (
 			localStorage.theme === 'dark' ||
@@ -29,9 +28,7 @@
 
 <svelte:head>
 	<script src="https://kit.fontawesome.com/2f975d5468.js" crossorigin="anonymous"></script>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
 	<script>
 		if (
 			localStorage.theme === 'dark' ||
@@ -53,17 +50,6 @@
 		<!-- svelte-ignore missing-declaration -->
 		<button on:click={handleSwitchDarkMode}>
 			<Logo className="cursor-help" />
-		</button>
-		<button
-			data-collapse-toggle="navbar-default"
-			type="button"
-			on:click={() => openDrawer.update(() => true)}
-			class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
-			aria-controls="navbar-default"
-			aria-expanded="false"
-		>
-			<span class="sr-only">Open main menu</span>
-			<i class="fa-solid fa-bars" />
 		</button>
 		<div class="hidden w-full md:block md:w-auto" id="navbar-default">
 			<div

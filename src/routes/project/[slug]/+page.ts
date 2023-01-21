@@ -1,20 +1,13 @@
+import type Project from '../../../@types/project';
 import type { PageLoad } from './$types';
 interface Params {
 	slug: string;
 }
-interface Metadata {
-	title: string;
-	date: string;
-}
-interface Post {
-	metadata: Metadata;
-	default: ConstructorOfATypedSvelteComponent;
-}
 
 export const load = (async ({ params }: { params: Params }) => {
-	const post = (await import(`../${params.slug}.md`)) as Post;
-	const { title, date } = post.metadata;
-	const Content = post.default;
+	const project = (await import(`../${params.slug}.md`)) as Project;
+	const { title, date } = project.metadata;
+	const Content = project.default;
 
 	return {
 		Content,

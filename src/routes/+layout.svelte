@@ -6,7 +6,6 @@
 	import '../app.css';
 	import svelteLogo from '$lib/images/svelte-logo.svg';
 	import tailwindLogo from '$lib/images/tailwind-css-logo.png';
-	import Drawer from 'svelte-drawer-component';
 	import type { LayoutData } from './$types';
 
 	NProgress.configure({
@@ -23,6 +22,12 @@
 		}
 	}
 </script>
+
+<svelte:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+</svelte:head>
 
 <div class="app transition-all duration-300 font-primary">
 	<Header />
@@ -45,17 +50,3 @@
 		</nav>
 	</footer>
 </div>
-
-<style>
-	.app :global(.drawer .overlay) {
-		z-index: 0;
-	}
-	.app :global(.drawer .open) {
-		z-index: 10;
-	}
-	.app :global(.drawer .panel) {
-		background: black;
-		color: white;
-		z-index: 10;
-	}
-</style>

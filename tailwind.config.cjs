@@ -19,7 +19,7 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-				primary: ['"Poppins"']
+				primary: ['"Inter"']
 			},
 			translate: ['dark'],
 			gradientColorStops: (theme) => ({
