@@ -2,6 +2,7 @@
 title: SeminarIF
 date: '2022-08-26'
 summary: Informatics Seminar Schedule
+logo: '/images/projects/seminarif.png'
 ---
 
 ## What is this?

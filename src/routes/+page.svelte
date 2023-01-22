@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { profileAnimation } from './state';
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
-	import me from '$lib/images/me.png';
+	// @ts-ignore
+	import me from '$lib/images/me.png?webp';
 
 	const clickProfile = () => {
 		// Active

@@ -19,12 +19,15 @@
 		{#each projects as project}
 			<a class="" href={project.path}>
 				<div
-					class="mb-5 hover:shadow-lg  hover:bg-white dark:hover:bg-bodyDark p-4 rounded-lg dark:hover:shadow-none dark:hover:border-gray-50 dark:border-transparent dark:border transition-all"
+					class="flex items-center justify-between mb-5 hover:shadow-lg  hover:bg-white dark:hover:bg-bodyDark p-4 rounded-lg dark:hover:shadow-none dark:hover:border-gray-50 dark:border-transparent dark:border transition-all"
 				>
-					<h2 class="font-semibold text-xl">
-						{project.metadata.title}
-					</h2>
-					<p class="text-gray-500 dark:text-gray-400">{project.metadata.summary}</p>
+					<div>
+						<h2 class="font-semibold text-xl">
+							{project.metadata.title}
+						</h2>
+						<p class="text-gray-500 dark:text-gray-400">{project.metadata.summary}</p>
+					</div>
+					<img src={project.metadata.logo} height="50" width="50" alt={project.metadata.title} />
 				</div>
 			</a>
 		{/each}

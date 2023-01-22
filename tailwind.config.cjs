@@ -29,7 +29,7 @@ module.exports = {
 				third: 'var(--color-third)',
 				fourth: 'var(--color-fourth)',
 				fifth: 'var(--color-fifth)',
-				sixth: 'var(--color-six)'
+				sixth: 'var(--color-sixth)'
 			}),
 			colors: {
 				'yellow-ig': '#FFE00F',
