@@ -31,7 +31,7 @@
 
 <div class="app transition-all duration-300 font-primary">
 	<Header />
-	<main class="pt-16 pb-10 bg-gray-50 text-gray-900 dark:text-white dark:bg-gray-800">
+	<main class="pt-16 pb-10 min-h-screen bg-gray-50 text-gray-900 dark:text-white dark:bg-gray-800">
 		<slot />
 	</main>
 	<footer
