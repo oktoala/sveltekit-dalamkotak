@@ -28,8 +28,9 @@ body {
 		@apply bg-gradient-to-r bg-clip-text text-transparent hover:from-third hover:via-secondary hover:to-primary;
 	}
 
-	.about  a {
-		@apply bg-gradient-to-tr bg-clip-text text-transparent from-fifth to-sixth hover:to-fourth ;
+	.about a,
+	.project a {
+		@apply bg-gradient-to-tr bg-clip-text text-transparent from-fifth to-sixth hover:to-fourth;
 	}
 }
 /*

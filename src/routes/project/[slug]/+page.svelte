@@ -10,7 +10,7 @@
 </svelte:head>
 
 <article class="container mt-10 ">
-	<div class="prose dark:prose-invert max-w-none prose-a:text-sky-500">
+	<div class="prose dark:prose-invert max-w-none project">
 		<h1 class="md:text-5xl mb-0">{title}</h1>
 		<div class="flex items-center text-sm -mb-5">
 			<p>Oktavian Yoga Syahputra</p>

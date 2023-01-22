@@ -26,6 +26,8 @@
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link rel="canonical" href="https://dalamkotak.com"/>
+	<meta name="description" content="Dalamkotak - Portofolio website" />
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 </svelte:head>
 
@@ -39,11 +41,11 @@
 	>
 		<nav class="container flex flex-wrap items-center justify-center ">
 			<div class="">
-				Build With <a href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">
+				Build With <a aria-label="SvelteKit" href="https://kit.svelte.dev/" target="_blank" rel="noreferrer">
 					<img class="inline w-5" src={svelteLogo} alt="" />
 				</a>
 				and
-				<a target="_blank" rel="noreferrer" href="https://tailwindcss.com/">
+				<a target="_blank" rel="noreferrer" aria-label="TailwindCSS" href="https://tailwindcss.com/">
 					<img class="inline w-5" src={tailwindLogo} alt="" />
 				</a>
 			</div>

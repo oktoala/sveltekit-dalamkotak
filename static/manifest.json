@@ -1,0 +1,17 @@
+{
+	"short_name": "dalakotak",
+	"name": "DalamKotak",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "/favicon/light/android-chrome-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"background_color": "#1e1e1e",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#1e1e1e",
+	"description": "Dalamkotak - Website Portofolio"
+}

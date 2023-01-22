@@ -2,7 +2,10 @@
 	import { profileAnimation } from './state';
 	// @ts-ignore
 	import me from '$lib/images/me.png?webp';
+	import type { PageData } from './$types';
 
+	export let data: PageData;
+	const { projects } = data;
 	const clickProfile = () => {
 		// Active
 		if (!$profileAnimation.reverse) {
@@ -33,7 +36,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Dalamkotak</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
@@ -45,10 +48,13 @@
 			>
 				Dalamkotak Website
 			</h1>
-			<h2>By Oktavian Yoga Syahputra</h2>
-			<h2 class="text-lg">Software Deve<span class="text-red-500 font-bold">lover</span> 🫰</h2>
+			<h2 class="font-semibold text-lg">By Oktavian Yoga Syahputra</h2>
+			<h2 class="text-base">
+				Software Deve<span class="text-red-600 dark:text-red-400 font-bold">lover</span> 🫰
+			</h2>
 		</div>
 		<button
+			aria-label="Button Profile"
 			on:click={clickProfile}
 			class="hidden md:block relative {!$profileAnimation.isActive &&
 				'cursor-help'} {$profileAnimation.isActive &&
@@ -68,8 +74,47 @@
 		</button>
 	</div>
 </section>
-<section class="h-48">
-	<div class="container h-full flex items-center justify-center text-4xl font-bold">
-		<h3>Lagi Dikerjain... 🚧</h3>
+<section class="container mt-20">
+	<h2 class="text-2xl font-bold mb-4">Recent Projects</h2>
+	<div class="flex gap-6 flex-col md:flex-row">
+		{#each projects as project}
+			<a
+				class="transform hover:scale-[1.01] transition-all rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1 from-fourth to-sixth"
+				href={project.path}
+			>
+				<div class="flex flex-col justify-between h-full bg-white dark:bg-bodyDark rounded-lg p-4">
+					<div class="mb-3">
+						<div class="flex flex-col md:flex-row justify-between">
+							<h2
+								class="text-lg md:text-lg font-medium mb-1 sm:mb-2 w-full text-gray-900 dark:text-gray-100 "
+							>
+								{project.metadata.title}
+							</h2>
+						</div>
+						<div class="flex items-center text-gray-500 dark:text-gray-200 capsize">
+							{project.metadata.summary}
+						</div>
+					</div>
+					<img src={project.metadata.logo} alt={project.metadata.title} width="60" />
+				</div>
+			</a>
+		{/each}
 	</div>
+	<a
+		class="flex items-center mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
+		href="/project"
+		>See All Projects<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			class="h-6 w-6 ml-1"
+			><path
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M17.5 12h-15m11.667-4l3.333 4-3.333-4zm3.333 4l-3.333 4 3.333-4z"
+			/></svg
+		></a
+	>
 </section>

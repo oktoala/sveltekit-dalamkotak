@@ -6,8 +6,6 @@ layout: about
 	import spongebob from '$lib/images/spongebob.gif';
 </script>
 
-## Who am I?
-
 Yo what up everyone. 👋
 
 I'm the author of this website. Here's a quick introduction from me.
