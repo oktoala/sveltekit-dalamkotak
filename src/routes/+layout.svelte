@@ -24,11 +24,8 @@
 </script>
 
 <svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link rel="canonical" href="https://dalamkotak.com" />
 	<meta name="description" content="Dalamkotak - Portofolio website" />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <div class="app transition-all duration-300 font-primary">
