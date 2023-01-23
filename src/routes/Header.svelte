@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { theme } from './state';
 	import { page } from '$app/stores';
-	import type { SubmitFunction } from '$app/forms';
-	import { enhance } from '$app/forms';
 	import Logo from '../components/Logo.svelte';
 	import { browser } from '$app/environment';
 	let darkMode = true;
@@ -27,7 +24,6 @@
 </script>
 
 <svelte:head>
-
 	<script>
 		if (
 			localStorage.theme === 'dark' ||

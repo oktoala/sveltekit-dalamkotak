@@ -48,6 +48,3 @@ Then, I ported the app to Chrome Extension using [Svelte](https://svelte.dev/) a
 So I published it and suprisingly, people used it. (≧▽≦)
 
 Well, it's not that many people that used it but hey, It just for personal used at that time.
-
-
-

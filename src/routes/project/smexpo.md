@@ -6,4 +6,3 @@ logo: '/images/projects/smexpo.webp'
 ---
 
 ## What is This Project
-

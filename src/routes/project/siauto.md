@@ -1,5 +1,5 @@
 ---
-title: SIAauto 
+title: SIAauto
 date: '2021-11-13'
 summary: App that let you to fill KHS's questionnaire in siauto.unmul.ac.id
 logo: '/images/projects/siauto.png'
@@ -41,5 +41,3 @@ So, the last free thing that I could do is convert it to desktop app using Elect
 Suprisingly, It worked very well. 🥳
 
 There weren't so many people that used it when It launched, but had a feedback from a user who used it was a whole new experience for me. ( ╹▽╹ )
-
-

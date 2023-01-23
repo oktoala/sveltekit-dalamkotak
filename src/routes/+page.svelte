@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { profileAnimation } from './state';
+	import GithubChart from '../components/GithubChart.svelte';
 	// @ts-ignore
 	import me from '$lib/images/me.png?webp';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	const { projects } = data;
+	const { projects, contribution } = data;
 	const clickProfile = () => {
 		// Active
 		if (!$profileAnimation.reverse) {
@@ -117,4 +118,8 @@
 			/></svg
 		></a
 	>
+</section>
+<section class="container mt-10">
+	<h2 class="text-2xl font-bold mb-4">Github Contributions</h2>
+	<GithubChart datas={contribution} />
 </section>

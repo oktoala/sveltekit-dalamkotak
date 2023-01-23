@@ -1,3 +1,4 @@
+import type GithubUser from '../../@types/github';
 import type Project from '../../@types/project';
 
 export const fetchProjectsMD = async () => {
@@ -16,4 +17,50 @@ export const fetchProjectsMD = async () => {
 		})
 	);
 	return allProjects;
+};
+
+export const fetchGithubContribution = async (token: string, username: string) => {
+	const headers = {
+		Authorization: `Bearer ${token}`
+	};
+
+	const body = {
+		query: `query {
+            user(login: "${username}") {
+              name
+              contributionsCollection {
+                contributionCalendar {
+                  colors
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      color
+                      contributionCount
+                      contributionLevel
+                      date
+                      weekday
+                    }
+                    firstDay
+                  }
+                  months {
+                    name
+                    year
+                    firstDay
+                    totalWeeks
+                  }
+                }
+              }
+            }
+          }`
+	};
+
+	const res = await fetch('https://api.github.com/graphql', {
+		method: 'POST',
+		body: JSON.stringify(body),
+		headers: headers
+	});
+
+	const data = (await res.json()) as { data: GithubUser };
+
+	return data;
 };
