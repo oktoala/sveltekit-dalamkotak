@@ -24,13 +24,13 @@ I'm the author of this website. Here's a quick introduction from me.
 Dalamkotak was just a project for me to learn web development. Dalamkotak was made using [Hugo](https://gohugo.io/).
 You can see it on [hugo.dalamkotak.com](https://hugo.dalamkotak.com)
 
-Right now, It was made using [NextJS](https://nextjs.org/)
+Right now, It was made using [SvelteKit](https://https://kit.svelte.dev/)
 
 ## What is Dalamkotak mean?
 
 First of all, I don't really like to branding something with my name. So I decided to find another name.
 
-At that time, I was thinked "What name that so **Out Of The Box**?"
+At that time, I thought "What name that so **Out Of The Box**?"
 
 "Ohh, It's **In Of The Box**"
 
