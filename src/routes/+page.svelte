@@ -121,5 +121,7 @@
 </section>
 <section class="container mt-10">
 	<h2 class="text-2xl font-bold mb-4">Github Contributions</h2>
-	<GithubChart datas={contribution} />
+	<div class="overflow-x-auto px-10 pt-2">
+		<GithubChart datas={contribution} />
+	</div>
 </section>

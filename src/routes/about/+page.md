@@ -24,7 +24,7 @@ I'm the author of this website. Here's a quick introduction from me.
 Dalamkotak was just a project for me to learn web development. Dalamkotak was made using [Hugo](https://gohugo.io/).
 You can see it on [hugo.dalamkotak.com](https://hugo.dalamkotak.com)
 
-Right now, It was made using [SvelteKit](https://https://kit.svelte.dev/)
+Right now, It was made using [SvelteKit](https://kit.svelte.dev/).
 
 ## What is Dalamkotak mean?
 

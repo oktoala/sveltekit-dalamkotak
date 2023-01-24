@@ -1,5 +1,7 @@
 <script lang="ts">
 	import type GithubUser from '../@types/github';
+	import { tooltip } from '../lib/utils/tootlip';
+	import { dayjs } from 'svelte-time';
 
 	export let datas: GithubUser;
 	const { user } = datas;
@@ -25,7 +27,7 @@
 	};
 </script>
 
-<svg width="100%" class="scale-110 ml-12" height="100%">
+<svg class="" width="770" >
 	<g transform="translate(15, 20)">
 		{#each user.contributionsCollection.contributionCalendar.weeks as week, i}
 			<g transform={`translate(${i * 14}, 0)`}>
@@ -36,19 +38,18 @@
 						height="10"
 						x="14"
 						y={ii * 13}
-						data-date="2022-01-23"
-						data-level="0"
-						rx="2"
-						ry="2">No contributions on January 23, 2022</rect
+						data-tooltip=""
+						use:tooltip
+						>{`${contributionDay.contributionCount ?? 'No'} contributions on ${dayjs(
+							contributionDay.date
+						).format('MMMM DD, YYYY')}`}</rect
 					>
 				{/each}
 			</g>
 		{/each}
 		{#each months as month, i}
-			<text
-				x={i !== 0 ? 14 + 13 * 4 * i : '14'}
-				y="-7"
-				class="text-xs fill-black dark:fill-white">{month.name}</text
+			<text x={i !== 0 ? 14 + 13 * 4 * i : '14'} y="-7" class="text-xs fill-black dark:fill-white"
+				>{month.name}</text
 			>
 		{/each}
 

@@ -9,7 +9,7 @@
 	height="34.5"
 	viewBox="0 0 538 456"
 	xmlns="http://www.w3.org/2000/svg"
->
+> 
 	<linearGradient id="gradient">
 		<stop class="secondary-color" offset="0%" />
 		<stop class="third-color" offset="100%" />
