@@ -25,6 +25,8 @@
 
 <svelte:head>
 	<link rel="canonical" href="https://dalamkotak.com" />
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4698265549676881"
+     crossorigin="anonymous"></script>
 	<meta name="description" content="Dalamkotak - Portofolio website" />
 </svelte:head>
 
