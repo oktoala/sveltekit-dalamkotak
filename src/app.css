@@ -1,5 +1,4 @@
 @import '@fontsource/fira-mono';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -193,3 +192,5 @@ code[class*='language-'] ::selection {
 .token.italic {
 	font-style: italic;
 }
+
+/* End of Code Blocks*/

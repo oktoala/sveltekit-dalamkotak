@@ -3,6 +3,9 @@ title: Mesem
 date: '2022-08-18'
 summary: Chrome extension that have emoji smiles on it
 logo: /images/projects/mesem.png
+tech:
+  - Sveltekit
+  - Tailwind
 ---
 
 ## What is 'Mesem'?

@@ -6,12 +6,13 @@ interface Params {
 
 export const load = (async ({ params }: { params: Params }) => {
 	const project = (await import(`../${params.slug}.md`)) as Project;
-	const { title, date } = project.metadata;
+	const { title, date, tech } = project.metadata;
 	const Content = project.default;
 
 	return {
 		Content,
 		title,
-		date
+		date,
+		tech
 	};
 }) satisfies PageLoad;

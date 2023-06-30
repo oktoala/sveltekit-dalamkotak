@@ -13,7 +13,7 @@ I'm the author of this website. Here's a quick introduction from me.
 ```json
 {
 	"name": "Oktavian Yoga Syahputra",
-	"nickname": "Okta",
+	"nickname": "oystr",
 	"job": "Student",
 	"hobby": "Reading"
 }

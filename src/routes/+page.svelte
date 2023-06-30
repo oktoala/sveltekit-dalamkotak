@@ -42,16 +42,16 @@
 </svelte:head>
 
 <section class="w-full">
-	<div class="container py-6 flex items-center justify-between">
+	<div class="container flex justify-between items-center py-6">
 		<div class="">
 			<h1
-				class="text-5xl font-bold bg-gradient-to-r bg-clip-text from-primary via-secondary to-third text-transparent"
+				class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-third"
 			>
 				Dalamkotak Website
 			</h1>
-			<h2 class="font-semibold text-lg">By Oktavian Yoga Syahputra</h2>
+			<h2 class="text-lg font-semibold">By Oktavian Yoga Syahputra</h2>
 			<h2 class="text-base">
-				Software Deve<span class="text-red-600 dark:text-red-400 font-bold">lover</span> 🫰
+				Software Deve<span class="font-bold text-red-600 dark:text-red-400">lover</span> 🫰
 			</h2>
 		</div>
 		<button
@@ -62,7 +62,7 @@
 				!$profileAnimation.isSpinning &&
 				'cursor-wait'}  transition-all {$profileAnimation.isBounce && 'animate-bounce'}"
 		>
-			<div class="bg-cover bg-gray-900 relative dark:bg-white z-10 rounded-full w-40 h-40" />
+			<div class="relative z-10 w-40 h-40 bg-gray-900 bg-cover rounded-full dark:bg-white" />
 			<div
 				class="{$profileAnimation.isActive ? 'block' : 'hidden'} {$profileAnimation.isSpinning &&
 					'animate-spin'} bg-cover bg-gradient-to-r from-yellow-ig via-orange-ig to-red-ig  dark:from-red-ig dark:via-pink-ig dark:to-purple-ig absolute -top-2 -left-2 z-0 dark:bg-red-500 rounded-full w-44 h-44"
@@ -76,18 +76,18 @@
 	</div>
 </section>
 <section class="container mt-20">
-	<h2 class="text-2xl font-bold mb-4">Recent Projects</h2>
-	<div class="flex gap-6 flex-col md:flex-row">
+	<h2 class="mb-4 text-2xl font-bold">Recent Projects</h2>
+	<div class="flex flex-col gap-6 md:flex-row">
 		{#each projects as project}
 			<a
-				class="transform hover:scale-[1.01] transition-all rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1 from-fourth to-sixth"
+				class="p-1 w-full bg-gradient-to-r rounded-xl transition-all transform md:w-1/3 from-fourth to-sixth hover:scale-[1.01]"
 				href={project.path}
 			>
-				<div class="flex flex-col justify-between h-full bg-white dark:bg-bodyDark rounded-lg p-4">
+				<div class="flex flex-col justify-between p-4 h-full bg-white rounded-lg dark:bg-bodyDark">
 					<div class="mb-3">
-						<div class="flex flex-col md:flex-row justify-between">
+						<div class="flex flex-col justify-between md:flex-row">
 							<h2
-								class="text-lg md:text-lg font-medium mb-1 sm:mb-2 w-full text-gray-900 dark:text-gray-100 "
+								class="mb-1 w-full text-lg font-medium text-gray-900 sm:mb-2 md:text-lg dark:text-gray-100"
 							>
 								{project.metadata.title}
 							</h2>
@@ -102,13 +102,13 @@
 		{/each}
 	</div>
 	<a
-		class="flex items-center mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6"
+		class="flex items-center mt-8 h-6 leading-7 text-gray-600 rounded-lg transition-all dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
 		href="/project"
 		>See All Projects<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 24 24"
-			class="h-6 w-6 ml-1"
+			class="ml-1 w-6 h-6"
 			><path
 				stroke="currentColor"
 				stroke-linecap="round"
@@ -120,8 +120,8 @@
 	>
 </section>
 <section class="container mt-10">
-	<h2 class="text-2xl font-bold mb-4">Github Contributions</h2>
+	<h2 class="mb-4 text-2xl font-bold">Github Contributions</h2>
 	<div class="overflow-x-auto px-10 pt-2">
-		<GithubChart datas={contribution} />
+		<GithubChart datas={contribution} type="github" />
 	</div>
 </section>

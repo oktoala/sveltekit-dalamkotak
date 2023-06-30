@@ -3,11 +3,17 @@ title: SeminarIF
 date: '2022-08-26'
 summary: Informatics Seminar Schedule
 logo: '/images/projects/seminarif.png'
+tech:
+  - NextJS
+  - Tailwind
+  - tRPC
 ---
 
 ## What is this?
 
 This is a web application that displays Informatics student seminar schedules.
+
+![img](blob:https://vercel.com/7696151d-4485-4ba0-8c61-94587172a290)
 
 You can see it on [here](https://seminar.dalamkotak.com/)
 

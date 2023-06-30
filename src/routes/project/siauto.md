@@ -3,6 +3,10 @@ title: SIAauto
 date: '2021-11-13'
 summary: App that let you to fill KHS's questionnaire in siauto.unmul.ac.id
 logo: '/images/projects/siauto.png'
+tech:
+  - Electron
+  - React
+  - Tailwind
 ---
 
 ## What is SIAuto?
